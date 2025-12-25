@@ -1,0 +1,33 @@
+{
+  "validCredentials": {
+    "username": "tomsmith",
+    "password": "SuperSecretPassword!"
+  },
+  "invalidCredentials": [
+    {
+      "username": "invaliduser",
+      "password": "SuperSecretPassword!",
+      "expectedError": "Your username is invalid!"
+    },
+    {
+      "username": "tomsmith",
+      "password": "invalidpassword",
+      "expectedError": "Your password is invalid!"
+    },
+    {
+      "username": "",
+      "password": "",
+      "expectedError": "Your username is invalid!"
+    },
+    {
+      "username": "admin",
+      "password": "admin123",
+      "expectedError": "Your username is invalid!"
+    }
+  ],
+  "specialCharacters": {
+    "username": "test@#$%",
+    "password": "pass@#$%",
+    "expectedError": "Your username is invalid!"
+  }
+}

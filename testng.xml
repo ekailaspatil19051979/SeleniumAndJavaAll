@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="The Internet Test Suite" verbose="1" parallel="methods" thread-count="3">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="dev"/>
+    
+    <test name="Authentication Tests">
+        <classes>
+            <class name="com.automation.ui.tests.authentication.ValidLoginTest"/>
+            <class name="com.automation.ui.tests.authentication.InvalidLoginTest"/>
+            <class name="com.automation.ui.tests.authentication.LogoutTest"/>
+        </classes>
+    </test>
+    
+    <test name="Form Tests">
+        <classes>
+            <class name="com.automation.ui.tests.forms.BasicControlsTest"/>
+            <class name="com.automation.ui.tests.forms.FileUploadTest"/>
+        </classes>
+    </test>
+    
+    <test name="Dynamic Content Tests">
+        <classes>
+            <class name="com.automation.ui.tests.dynamic.DynamicLoadingTest"/>
+            <class name="com.automation.ui.tests.dynamic.AddRemoveElementsTest"/>
+            <class name="com.automation.ui.tests.dynamic.DragAndDropTest"/>
+        </classes>
+    </test>
+    
+    <test name="Navigation Tests">
+        <classes>
+            <class name="com.automation.ui.tests.navigation.MultipleWindowsTest"/>
+            <class name="com.automation.ui.tests.navigation.ContextMenuTest"/>
+            <class name="com.automation.ui.tests.navigation.FramesTest"/>
+        </classes>
+    </test>
+    
+    <test name="UI Components Tests">
+        <classes>
+            <class name="com.automation.ui.tests.components.HoverInteractionsTest"/>
+            <class name="com.automation.ui.tests.components.ChallengingDomTest"/>
+            <class name="com.automation.ui.tests.components.NotificationMessagesTest"/>
+            <class name="com.automation.ui.tests.components.FloatingMenuTest"/>
+        </classes>
+    </test>
+    
+    <test name="Error Handling Tests">
+        <classes>
+            <class name="com.automation.ui.tests.errors.BrokenResourcesTest"/>
+            <class name="com.automation.ui.tests.errors.RedirectsTest"/>
+            <class name="com.automation.ui.tests.errors.StatusCodesTest"/>
+        </classes>
+    </test>
+</suite>
