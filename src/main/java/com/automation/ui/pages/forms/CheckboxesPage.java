@@ -13,14 +13,14 @@ import java.util.List;
  */
 public class CheckboxesPage extends BasePage {
     
-    // Page Elements
-    @FindBy(css = "input[type='checkbox']")
+    // Page Elements using Selenium 4 optimized locators
+    @FindBy(css = "form#checkboxes input[type='checkbox']")
     private List<WebElement> checkboxes;
     
-    @FindBy(css = "h3")
+    @FindBy(css = "div.example h3")
     private WebElement pageHeading;
     
-    @FindBy(css = "div.example")
+    @FindBy(css = "div.example form#checkboxes")
     private WebElement checkboxContainer;
     
     // Page Navigation

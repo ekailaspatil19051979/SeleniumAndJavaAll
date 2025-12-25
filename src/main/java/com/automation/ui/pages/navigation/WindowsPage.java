@@ -13,18 +13,18 @@ import java.util.Set;
  */
 public class WindowsPage extends BasePage {
     
-    // Page Elements
-    @FindBy(linkText = "Click Here")
+    // Page Elements using Selenium 4 optimized locators
+    @FindBy(css = "a[href='/windows/new']")
     private WebElement clickHereLink;
     
-    @FindBy(css = "h3")
+    @FindBy(css = "div.example h3")
     private WebElement pageHeading;
     
-    @FindBy(css = "div.example p")
+    @FindBy(css = "div.example > p")
     private WebElement pageDescription;
     
-    // New window elements (for new window page)
-    @FindBy(css = "h3")
+    // New window elements (for new window page) - more specific selectors
+    @FindBy(css = "div.example h3")
     private WebElement newWindowHeading;
     
     private String originalWindowHandle;

@@ -2,11 +2,13 @@ package com.automation.ui.actions;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.List;
 
 import java.time.Duration;
 
@@ -29,25 +31,57 @@ public class WaitActions {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
     }
     
-    public void waitForElementToBeVisible(WebElement element) {
+    public WebElement waitForElementToBeVisible(WebElement element) {
         logger.debug("Waiting for element to be visible");
-        wait.until(ExpectedConditions.visibilityOf(element));
+        return wait.until(ExpectedConditions.visibilityOf(element));
     }
     
-    public void waitForElementToBeClickable(WebElement element) {
+    public WebElement waitForElementToBeClickable(WebElement element) {
         logger.debug("Waiting for element to be clickable");
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
     
-    public void waitForElementToBeInvisible(WebElement element) {
+    public boolean waitForElementToBeInvisible(WebElement element) {
         logger.debug("Waiting for element to be invisible");
-        wait.until(ExpectedConditions.invisibilityOf(element));
+        return wait.until(ExpectedConditions.invisibilityOf(element));
     }
     
     public void waitForPageLoad() {
         logger.debug("Waiting for page to load completely");
         wait.until(webDriver -> ((JavascriptExecutor) webDriver)
                 .executeScript("return document.readyState").equals("complete"));
+    }
+    
+    /**
+     * Wait for element to be present by locator (Selenium 4 optimized)
+     */
+    public WebElement waitForElementToBePresent(By locator) {
+        logger.debug("Waiting for element to be present: {}", locator);
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+    
+    /**
+     * Wait for elements to be present by locator (Selenium 4 optimized)
+     */
+    public List<WebElement> waitForElementsToBePresent(By locator) {
+        logger.debug("Waiting for elements to be present: {}", locator);
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
+    
+    /**
+     * Wait for element to be visible by locator (Selenium 4 optimized)
+     */
+    public WebElement waitForElementToBeVisible(By locator) {
+        logger.debug("Waiting for element to be visible: {}", locator);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    
+    /**
+     * Wait for element to be clickable by locator (Selenium 4 optimized)
+     */
+    public WebElement waitForElementToBeClickable(By locator) {
+        logger.debug("Waiting for element to be clickable: {}", locator);
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     
     public void waitForUrlToContain(String urlFragment) {

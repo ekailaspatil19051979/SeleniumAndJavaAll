@@ -1,6 +1,7 @@
 package com.automation.ui.pages.components;
 
 import com.automation.core.base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -132,7 +133,7 @@ public class ChallengingDomPage extends BasePage {
     public String getTableCellText(int row, int col) {
         try {
             if (row >= 0 && row < tableRows.size()) {
-                List<WebElement> cells = tableRows.get(row).findElements(org.openqa.selenium.By.tagName("td"));
+                List<WebElement> cells = tableRows.get(row).findElements(By.tagName("td"));
                 if (col >= 0 && col < cells.size()) {
                     return cells.get(col).getText();
                 }

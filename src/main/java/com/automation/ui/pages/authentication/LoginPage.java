@@ -11,20 +11,20 @@ import org.openqa.selenium.support.FindBy;
  */
 public class LoginPage extends BasePage {
     
-    // Page Elements
-    @FindBy(id = "username")
+    // Page Elements using Selenium 4 optimized locators
+    @FindBy(css = "input[name='username']")
     private WebElement usernameField;
     
-    @FindBy(id = "password")
+    @FindBy(css = "input[name='password']")
     private WebElement passwordField;
     
     @FindBy(css = "button[type='submit']")
     private WebElement loginButton;
     
-    @FindBy(id = "flash")
+    @FindBy(css = "div[id='flash']")
     private WebElement flashMessage;
     
-    @FindBy(css = "h2")
+    @FindBy(css = "div.login h2")
     private WebElement pageHeading;
     
     // Page Navigation
